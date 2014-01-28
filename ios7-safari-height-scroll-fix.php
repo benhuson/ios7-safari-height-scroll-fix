@@ -14,7 +14,7 @@ class IOS7_Safari_Height_Scroll_Fix {
 	 * Setup Actions
 	 */
 	function setup_actions() {
-		if ( ! is_admin() ) {
+		if ( ! is_admin() && IOS7_Safari_Height_Scroll_Fix::is_required() ) {
 			add_action( 'wp_enqueue_scripts', array( 'IOS7_Safari_Height_Scroll_Fix', 'enqueue_jquery' ) );
 			add_action( 'wp_head', array( 'IOS7_Safari_Height_Scroll_Fix', 'wp_head' ) );
 		}
@@ -31,9 +31,7 @@ class IOS7_Safari_Height_Scroll_Fix {
 	 * Enqueue jQuery
 	 */
 	function enqueue_jquery() {
-		if ( IOS7_Safari_Height_Scroll_Fix::is_required() ) {
-			wp_enqueue_script( 'jquery' );
-		}
+		wp_enqueue_script( 'jquery' );
 	}
 
 	/**
